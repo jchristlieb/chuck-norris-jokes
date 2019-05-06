@@ -1,0 +1,27 @@
+{
+    "name": "jchristlieb/chuck-norris-jokes",
+    "description": "Receive random Chuck Norris jokes. Enjoy.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Christlieb",
+            "email": "mail@janchristlieb.de"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Jchristlieb\\ChuckNorrisJokes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jchristlieb\\ChuckNorrisJokes\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1",
+        "phpunit/php-code-coverage": "^7.0"
+    }
+}
