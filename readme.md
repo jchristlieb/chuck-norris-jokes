@@ -1,20 +1,31 @@
 [![Build Status](https://travis-ci.com/jchristlieb/chuck-norris-jokes.svg?branch=master)](https://travis-ci.com/jchristlieb/chuck-norris-jokes)
 [![StyleCI](https://github.styleci.io/repos/185214456/shield?branch=master)](https://github.styleci.io/repos/185214456)
+
 # Chuck Norris Jokes
 
-### 1. Require the package
-```
-composer require jchristlieb\chuck-norris-jokes
+This is a library that supports you with random Chuck Norris Jokes. 
+
+## Installation
+
+Require the package using composer:
+
+```bash
+composer require jchristlieb/chuck-norris-jokes
 ```
 
-### 2. Display jokes 
-```
-Route::get('/joke', function (){
-    $jokes = new \Jchristlieb\ChuckNorrisJokes\JokeFactory();
+## Usage
 
-    return view('joke', [
-        'joke' => $jokes->getRandomJoke()
-    ]);
-});
+```php
+use Jchristlieb\ChuckNorrisJokes\JokeFactory;
+
+$jokes = new JokeFactory();
+
+$joke = $jokes->getRandomJoke()
 ```
+
+## Credits
+Marcel Pociot's [PHP Package Development Course](https://phppackagedevelopment.com)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
