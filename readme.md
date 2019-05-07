@@ -26,6 +26,9 @@ $joke = $jokes->getRandomJoke()
 ## Credits
 Marcel Pociot's [PHP Package Development Course](https://phppackagedevelopment.com)
 
+## Changelog
+All changes to this library are documented in the [changelog](CHANGELOG.md).
+
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](license.md)
 
