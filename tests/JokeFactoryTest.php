@@ -2,6 +2,10 @@
 
 namespace Jchristlieb\ChuckNorrisJokes\Tests;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use Jchristlieb\ChuckNorrisJokes\JokeFactory;
 
@@ -10,28 +14,21 @@ class JokeFactoryTest extends TestCase
     /** @test */
     public function it_returns_a_random_joke()
     {
-        $jokes = new JokeFactory([
-           'This is a joke',
-       ]);
+        // mock the expected request
+        $mock = new MockHandler([
+            new Response(200, [],'{ "type": "success", "value": { "id": 154, "joke": "Movie trivia: The movie &quot;Invasion U.S.A.&quot; is, in fact, a documentary.", "categories": [] } }'),
+        ]);
+
+        // handle the mock request through guzzle client
+        $handler = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handler]);
+
+
+        $jokes = new JokeFactory($client);
 
         $joke = $jokes->getRandomJoke();
 
-        $this->assertSame('This is a joke', $joke);
+        $this->assertSame('Movie trivia: The movie &quot;Invasion U.S.A.&quot; is, in fact, a documentary.', $joke);
     }
 
-    /** @test */
-    public function it_returns_a_chuck_norris_joke()
-    {
-        $chuckNorrisJokes = [
-            'Chuck Norris counted to infinity... Twice.',
-            'They once made a "Chuck Norris" brand toilet paper, but it wouldn\'t take shit from anybody.',
-            'Chuck Norris uses pepper spray to spice up his steaks.',
-            'Chuck Norris can win a game of Connect Four in only three moves.',
-            'Not everyone that Chuck Norris is mad at gets killed. Some get away. They are called astronauts.',
-        ];
-
-        $jokes = new JokeFactory();
-        $joke = $jokes->getRandomJoke();
-        $this->assertContains($joke, $chuckNorrisJokes);
-    }
 }
