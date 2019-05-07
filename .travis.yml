@@ -1,13 +1,12 @@
 language: php
 
-#run tests against the following PHP versions
 php:
-  - 7.1
-  - 7.2
-  - 7.3
+  - 7.1.
+  - 7.2.
+  - 7.3.
 
 before_script:
-  - travis_retry composer update # for autoloading and phpunit
+  - travis_retry composer update
 
 script:
   - vendor/bin/phpunit
