@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
 use Jchristlieb\ChuckNorrisJokes\Http\Controllers\ChuckNorrisController;
-use Jchristlieb\ChuckNorrisJokes\JokeFactory;
+
 
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,7 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                ChuckNorrisJoke::class
+                ChuckNorrisJoke::class,
             ]);
         }
 
