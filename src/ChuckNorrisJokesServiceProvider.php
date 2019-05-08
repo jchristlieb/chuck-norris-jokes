@@ -4,7 +4,6 @@ namespace Jchristlieb\ChuckNorrisJokes;
 
 use Illuminate\Support\ServiceProvider;
 use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
-use Jchristlieb\ChuckNorrisJokes\JokeFactory;
 
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
@@ -12,10 +11,9 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                ChuckNorrisJoke::class
+                ChuckNorrisJoke::class,
             ]);
         }
-
     }
 
     public function register()
