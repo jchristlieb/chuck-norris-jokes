@@ -27,7 +27,11 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
         // use php artisan vendor:publish to get those published
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/chuck-norris'),
-        ]);
+        ], 'views');
+
+        $this->publishes([
+            __DIR__ . '/../config/chuck-norris.php' => base_path('config/chuck-norris.php')
+        ], 'config');
 
     }
 
@@ -38,5 +42,7 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
         $this->app->bind('chuck-norris', function () {
             return new JokeFactory();
         });
+
+        $this->mergeConfigFrom(__DIR__ . '/../config/chuck-norris.php', 'chuck-norris');
     }
 }
