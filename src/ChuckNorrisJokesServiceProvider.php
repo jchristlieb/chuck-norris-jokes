@@ -2,14 +2,19 @@
 
 namespace Jchristlieb\ChuckNorrisJokes;
 
-
 use Illuminate\Support\ServiceProvider;
+use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
+use Jchristlieb\ChuckNorrisJokes\JokeFactory;
 
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                ChuckNorrisJoke::class
+            ]);
+        }
     }
 
     public function register()
@@ -17,7 +22,7 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
         // if someone is looking for a 'chuck-norris'
         // string provide a new JokeFactory
         $this->app->bind('chuck-norris', function (){
-           return new JokeFactory();
+            return new JokeFactory();
         });
     }
 }
