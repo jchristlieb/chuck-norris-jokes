@@ -2,10 +2,8 @@
 
 namespace Jchristlieb\ChuckNorrisJokes;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
-use Jchristlieb\ChuckNorrisJokes\Http\Controllers\ChuckNorrisController;
 
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
@@ -18,10 +16,10 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
         }
 
         // load web routes
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         // load views
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'chuck-norris');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'chuck-norris');
 
         // publish files to vendor project
         // use php artisan vendor:publish to get those published
