@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
 use Jchristlieb\ChuckNorrisJokes\Http\Controllers\ChuckNorrisController;
 
-
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
     public function boot()
@@ -19,7 +18,6 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
         }
 
         Route::get('chuck-norris', ChuckNorrisController::class);
-
     }
 
     public function register()
