@@ -2,11 +2,11 @@
 
 namespace Jchristlieb\ChuckNorrisJokes\Tests;
 
-use Illuminate\Support\Facades\Artisan;
-use Jchristlieb\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
-use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
-use Jchristlieb\ChuckNorrisJokes\Facades\ChuckNorris;
 use Orchestra\Testbench\TestCase;
+use Illuminate\Support\Facades\Artisan;
+use Jchristlieb\ChuckNorrisJokes\Facades\ChuckNorris;
+use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
+use Jchristlieb\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
 
 class LaravelTest extends TestCase
 {
@@ -14,7 +14,7 @@ class LaravelTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            ChuckNorrisJokesServiceProvider::class
+            ChuckNorrisJokesServiceProvider::class,
         ];
     }
 
@@ -22,7 +22,7 @@ class LaravelTest extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'ChuckNorris' => ChuckNorrisJoke::class
+            'ChuckNorris' => ChuckNorrisJoke::class,
         ];
     }
 
@@ -42,5 +42,4 @@ class LaravelTest extends TestCase
         // assert that output is equal to joke
         $this->assertSame('some joke'.PHP_EOL, $output);
     }
-
 }

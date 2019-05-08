@@ -2,7 +2,6 @@
 
 namespace Jchristlieb\ChuckNorrisJokes\Console;
 
-
 use Illuminate\Console\Command;
 use Jchristlieb\ChuckNorrisJokes\Facades\ChuckNorris;
 
