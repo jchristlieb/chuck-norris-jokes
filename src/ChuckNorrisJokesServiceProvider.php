@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 use Jchristlieb\ChuckNorrisJokes\Console\ChuckNorrisJoke;
 use Jchristlieb\ChuckNorrisJokes\Http\Controllers\ChuckNorrisController;
 
-
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
     public function boot()
@@ -29,6 +28,7 @@ class ChuckNorrisJokesServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/chuck-norris'),
         ]);
+
     }
 
     public function register()
